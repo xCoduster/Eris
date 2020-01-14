@@ -1,5 +1,8 @@
 #pragma once
 
+#include "er/Types.h"
+#include "er/maths/Math.h"
+
 #include "er/app/Window.h"
 #include "Sprite.h"
 
@@ -11,12 +14,12 @@ namespace er {
 		Window* m_Window;
 		byte* m_Pixels;
 
-		uint m_Width, m_Height;
+		vec2 m_WindowSize;
 	public:
 		Renderer(Window* window);
 		~Renderer();
 
-		void DrawSprite(const Sprite& sprite);
+		void DrawSprite(const Sprite& sprite, vec2 position);
 
 		void Render();
 		void ClearWindow();

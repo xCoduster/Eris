@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <sstream>
 
 #include <string>
 #include <vector>
@@ -10,3 +11,4 @@
 
 #include "er/Types.h"
 #include "er/Common.h"
+#include "er/maths/Math.h"

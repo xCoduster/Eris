@@ -31,10 +31,10 @@ namespace er {
 		GetCursorPos(&mouse);
 		ScreenToClient(hWnd, &mouse);
 
-		if (mouse.x != m_MouseX && mouse.y != m_MouseY)
+		if (mouse.x != m_MousePos.x || mouse.y != m_MousePos.y)
 		{
-			m_MouseX = mouse.x;
-			m_MouseY = mouse.y;
+			m_MousePos.x = mouse.x;
+			m_MousePos.y = mouse.y;
 		}
 	}
 
@@ -84,14 +84,9 @@ namespace er {
 		return m_MouseClicked[button];
 	}
 
-	const uint InputManager::GetMouseX() const
+	const vec2& InputManager::GetMousePosition() const
 	{
-		return m_MouseX;
-	}
-
-	const uint InputManager::GetMouseY() const
-	{
-		return m_MouseY;
+		return m_MousePos;
 	}
 
 	const bool InputManager::IsMouseGrabbed() const
@@ -168,7 +163,7 @@ namespace er {
 			break;
 		}
 		inputManager->m_MouseButtons[button] = down;
-		inputManager->m_MouseX = x;
-		inputManager->m_MouseY = y;
+		inputManager->m_MousePos.x = x;
+		inputManager->m_MousePos.y = y;
 	}
 }

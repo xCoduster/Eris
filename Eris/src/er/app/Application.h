@@ -1,5 +1,8 @@
 #pragma once
 
+#include <string>
+#include "er/Types.h"
+
 #include "Window.h"
 #include "er/graphics/Renderer.h"
 #include "er/utils/TimeStep.h"
@@ -13,6 +16,7 @@ namespace er {
 		Renderer* m_Renderer;
 
 		bool m_Running;
+	protected:
 		uint m_FPS, m_UPS;
 		float m_Frametime;
 	public:

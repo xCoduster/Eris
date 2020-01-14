@@ -5,18 +5,15 @@
 
 namespace er {
 
-	Sprite::Sprite(int32 x, int32 y, std::string filePath)
+	Sprite::Sprite(std::string filePath)
 	{
 		m_BMPProps = LoadBMP(filePath);
-		m_Props.x = x;
-		m_Props.y = y;
-		m_Props.width = m_BMPProps.width;
-		m_Props.height = m_BMPProps.height;
+		m_Props.size = m_BMPProps.size;
 		m_Props.pixels = m_BMPProps.pixels;
 	}
 
-	void Sprite::OnRender(Renderer& renderer)
+	void Sprite::Render(Renderer& renderer, vec2 position)
 	{
-		renderer.DrawSprite(*this);
+		renderer.DrawSprite(*this, position);
 	}
 }

@@ -116,11 +116,12 @@ namespace er {
 
 	void Window::Render(byte* pixels)
 	{
-		HBITMAP map = CreateBitmap(m_Properties.width, m_Properties.height, 1, 32, pixels);
+		HBITMAP map = CreateBitmap(m_Properties.size.x, m_Properties.size.y, 1, 32, pixels);
 
 		HDC src = CreateCompatibleDC(hDc);
 		SelectObject(src, map);
-		BitBlt(hDc, 0, 0, m_Properties.width, m_Properties.height, src, 0, 0, SRCCOPY);
+		BitBlt(hDc, 0, 0, m_Properties.size.x, m_Properties.size.y, src, 0, 0, SRCCOPY);
+		//StretchBlt(hDc, 0, 0, m_Properties..size.x, m_Properties..size.y, src, 0, 0, width, height, SRCCOPY);
 
 		DeleteObject(map);
 		DeleteDC(src);
@@ -128,8 +129,8 @@ namespace er {
 
 	void ResizeCallback(Window* window, int32 width, int32 height)
 	{
-		window->m_Properties.width = width;
-		window->m_Properties.height = height;
+		window->m_Properties.size.x = width;
+		window->m_Properties.size.y = height;
 	}
 
 	LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)

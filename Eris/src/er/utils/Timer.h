@@ -1,5 +1,7 @@
 #pragma once
 
+#include "er/Types.h"
+
 namespace er {
 
 	struct Members;

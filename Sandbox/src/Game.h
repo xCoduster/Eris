@@ -2,8 +2,12 @@
 
 #include <Eris.h>
 
+#include "entities/Entity.h"
+
 class Game : public er::Application
 {
+private:
+	Entity* m_Entity;
 public:
 	Game();
 	~Game();

@@ -1,5 +1,8 @@
 #pragma once
 
+#include "er/Types.h"
+#include "er/maths/Math.h"
+
 #include "er/utils/FileUtils.h"
 #include "er/utils/TimeStep.h"
 
@@ -9,8 +12,7 @@ namespace er {
 
 	struct SpriteProps
 	{
-		int32 x, y;
-		uint width, height;
+		vec2 size;
 		byte* pixels;
 	};
 
@@ -20,9 +22,9 @@ namespace er {
 		SpriteProps m_Props;
 		BMPProps m_BMPProps;
 	public:
-		Sprite(int32 x, int32 y, std::string filePath);
+		Sprite(std::string filePath);
 
-		void OnRender(Renderer& renderer);
+		void Render(Renderer& renderer, vec2 position);
 
 		inline SpriteProps GetProps() const { return m_Props; }
 	};

@@ -1,12 +1,16 @@
 #pragma once
 
+#include <map>
+#include "er/Types.h"
+#include "er/maths/Math.h"
+
 #include "Input.h"
 
 namespace er {
 
 	struct WindowProperties
 	{
-		uint width, height;
+		vec2 size;
 		bool fullscreen;
 		bool vsync;
 	};
@@ -31,8 +35,7 @@ namespace er {
 
 		bool Closed() const;
 
-		inline uint GetWidth() const { return m_Properties.width; }
-		inline uint GetHeight() const { return m_Properties.height; }
+		inline const vec2& GetSize() const { return m_Properties.size; }
 
 		inline InputManager* GetInputManager() const { return m_InputManager; }
 	private:

@@ -12,8 +12,7 @@ namespace er {
 		size_t result;
 		BMPProps props;
 		props.pixels = nullptr;
-		props.width = NULL;
-		props.height = NULL;
+		props.size = NULL;
 		props.BPP = NULL;
 
 		int pixelArrayOffset;
@@ -67,8 +66,8 @@ namespace er {
 		}
 
 		props.pixels = tmp;
-		props.width = width;
-		props.height = height;
+		props.size.x = width;
+		props.size.y = height;
 		props.BPP = BPP;
 
 		return props;

@@ -1,5 +1,8 @@
 #pragma once
 
+#include "er/Types.h"
+#include "er/maths/Math.h"
+
 namespace er {
 
 #define MAX_KEYS	1024
@@ -17,7 +20,7 @@ namespace er {
 		bool m_MouseGrabbed;
 		int32 m_KeyModifiers;
 
-		uint m_MouseX, m_MouseY;
+		vec2 m_MousePos;
 	public:
 		InputManager();
 
@@ -27,9 +30,8 @@ namespace er {
 		bool IsMouseButtonPressed(uint button) const;
 		bool IsMouseButtonClicked(uint button) const;
 
-		const uint GetMouseX() const;
-		const uint GetMouseY() const;
-		void SetMousePosition(uint x, uint y);
+		const vec2& GetMousePosition() const;
+		void SetMousePosition(vec2 position);
 		const bool IsMouseGrabbed() const;
 		void SetMouseGrabbed(bool grabbed);
 
@@ -51,8 +53,7 @@ namespace er {
 		inline static bool IsMouseButtonPressed(uint button) { return s_InputManager->IsMouseButtonPressed(button); }
 		inline static bool IsMouseButtonClicked(uint button) { return s_InputManager->IsMouseButtonClicked(button); }
 
-		inline static const uint GetMouseX() { return s_InputManager->GetMouseX(); }
-		inline static const uint GetMouseY() { return s_InputManager->GetMouseY(); }
+		inline static const vec2& GetMousePosition() { return s_InputManager->GetMousePosition(); }
 
 		inline static InputManager* GetInputManager() { return s_InputManager; }
 	};

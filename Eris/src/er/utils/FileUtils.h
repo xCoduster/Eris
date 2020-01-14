@@ -1,11 +1,15 @@
 #pragma once
 
+#include <string>
+#include "er/Types.h"
+#include "er/maths/Math.h"
+
 namespace er {
 
 	struct BMPProps
 	{
 		byte* pixels;
-		uint width, height;
+		vec2 size;
 		byte BPP;
 	};
 
