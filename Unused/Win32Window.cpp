@@ -1,5 +1,5 @@
 #include "er/erpch.h"
-#include "er/app/Window.h"
+/*#include "er/app/Window.h"
 
 #include <Windows.h>
 #include <Windowsx.h>
@@ -15,6 +15,7 @@ namespace er {
 	HINSTANCE hInstance;
 	HDC hDc;
 	HWND hWnd;
+	BLENDFUNCTION bfn;
 
 	static PIXELFORMATDESCRIPTOR GetPixelFormat()
 	{
@@ -70,7 +71,13 @@ namespace er {
 		int32 pixelFormat = ChoosePixelFormat(hDc, &pfd);
 		SetPixelFormat(hDc, pixelFormat, &pfd);
 
-		ShowWindow(hWnd, SW_SHOW);
+		/*bfn = {};
+		bfn.BlendOp = AC_SRC_OVER;
+		bfn.BlendFlags = 0;
+		bfn.SourceConstantAlpha = 0xFF;
+		bfn.AlphaFormat = AC_SRC_ALPHA;*/
+
+		/*ShowWindow(hWnd, SW_SHOW);
 		SetFocus(hWnd);
 
 		RECT rect;
@@ -114,13 +121,16 @@ namespace er {
 		StretchDIBits(hDc, 0, 0, m_Properties.width, m_Properties.height, 0, 0, m_Properties.width, m_Properties.height, pixels, &info, DIB_RGB_COLORS, SRCCOPY);
 	}*/
 
-	void Window::Render(byte* pixels)
+	/*void Window::Render(byte* pixels)
 	{
 		HBITMAP map = CreateBitmap(m_Properties.size.x, m_Properties.size.y, 1, 32, pixels);
+
+		BitBlt(hDc, 0, 0, m_Properties.size.x, m_Properties.size.y, 0, 0, 0, BLACKNESS);
 
 		HDC src = CreateCompatibleDC(hDc);
 		SelectObject(src, map);
 		BitBlt(hDc, 0, 0, m_Properties.size.x, m_Properties.size.y, src, 0, 0, SRCCOPY);
+		//AlphaBlend(hDc, 0, 0, m_Properties.size.x, m_Properties.size.y, src, 0, 0, m_Properties.size.x, m_Properties.size.y, bfn);
 		//StretchBlt(hDc, 0, 0, m_Properties..size.x, m_Properties..size.y, src, 0, 0, width, height, SRCCOPY);
 
 		DeleteObject(map);
@@ -169,4 +179,4 @@ namespace er {
 
 		return result;
 	}
-}
+}*/

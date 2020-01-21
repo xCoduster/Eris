@@ -66,8 +66,8 @@ namespace er {
 		}
 
 		props.pixels = tmp;
-		props.size.x = width;
-		props.size.y = height;
+		props.size.x = (float)width;
+		props.size.y = (float)height;
 		props.BPP = BPP;
 
 		return props;

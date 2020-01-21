@@ -8,12 +8,12 @@ namespace er {
 	{
 	}
 
-	vec2::vec2(int32 scalar)
+	vec2::vec2(float scalar)
 		: x(scalar), y(scalar)
 	{
 	}
 
-	vec2::vec2(int32 x, int32 y)
+	vec2::vec2(float x, float y)
 		: x(x), y(y)
 	{
 	}
@@ -50,7 +50,7 @@ namespace er {
 		return *this;
 	}
 
-	vec2& vec2::Add(int32 value)
+	vec2& vec2::Add(float value)
 	{
 		x += value;
 		y += value;
@@ -58,7 +58,7 @@ namespace er {
 		return *this;
 	}
 
-	vec2& vec2::Subtract(int32 value)
+	vec2& vec2::Subtract(float value)
 	{
 		x -= value;
 		y -= value;
@@ -66,7 +66,7 @@ namespace er {
 		return *this;
 	}
 
-	vec2& vec2::Multiply(int32 value)
+	vec2& vec2::Multiply(float value)
 	{
 		x *= value;
 		y *= value;
@@ -74,7 +74,7 @@ namespace er {
 		return *this;
 	}
 
-	vec2& vec2::Divide(int32 value)
+	vec2& vec2::Divide(float value)
 	{
 		x /= value;
 		y /= value;
@@ -102,22 +102,22 @@ namespace er {
 		return left.Divide(right);
 	}
 
-	vec2 operator+(vec2 left, int32 value)
+	vec2 operator+(vec2 left, float value)
 	{
 		return vec2(left.x + value, left.y + value);
 	}
 
-	vec2 operator-(vec2 left, int32 value)
+	vec2 operator-(vec2 left, float value)
 	{
 		return vec2(left.x - value, left.y - value);
 	}
 
-	vec2 operator*(vec2 left, int32 value)
+	vec2 operator*(vec2 left, float value)
 	{
 		return vec2(left.x * value, left.y * value);
 	}
 
-	vec2 operator/(vec2 left, int32 value)
+	vec2 operator/(vec2 left, float value)
 	{
 		return vec2(left.x / value, left.y / value);
 	}
@@ -152,22 +152,22 @@ namespace er {
 		return Divide(other);
 	}
 
-	vec2& vec2::operator+=(int32 value)
+	vec2& vec2::operator+=(float value)
 	{
 		return Add(value);
 	}
 
-	vec2& vec2::operator-=(int32 value)
+	vec2& vec2::operator-=(float value)
 	{
 		return Subtract(value);
 	}
 
-	vec2& vec2::operator*=(int32 value)
+	vec2& vec2::operator*=(float value)
 	{
 		return Multiply(value);
 	}
 
-	vec2& vec2::operator/=(int32 value)
+	vec2& vec2::operator/=(float value)
 	{
 		return Divide(value);
 	}
@@ -192,18 +192,18 @@ namespace er {
 		return (x >= other.x && y >= other.y);
 	}
 
-	int32 vec2::Distance(const vec2& other) const
+	float vec2::Distance(const vec2& other) const
 	{
-		int32 a = x - other.x;
-		int32 b = y - other.y;
+		float a = x - other.x;
+		float b = y - other.y;
 
-		return (int32)sqrt(a * a + b * b);
+		return (float)sqrt(a * a + b * b);
 	}
 
 	std::string vec2::ToString() const
 	{
 		std::stringstream result;
-		result << "vec2: (" << x << ", " << y << ")";
+		result << "(" << x << ", " << y << ")";
 		return result.str();
 	}
 

@@ -1,39 +1,49 @@
-#include "Game.h"
+#include <Eris.h>
 
-#include <string>
-#include <er/graphics/Sprite.h>
+#include <imgui/imgui.h>
 
 using namespace er;
 
-Game::Game()
-	: Application("Sandbox")
+class Test2D : public Layer
 {
-	m_Entity = new Entity(vec2(0, 0), Sprite("res/test.bmp"));
-}
+public:
+	Test2D()
+		: Layer("Test")
+	{
+	}
 
-Game::~Game()
+	virtual void OnUpdate(const Timestep& ts) override
+	{
+
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Working");
+		ImGui::End();
+	}
+
+	virtual void OnEvent(Event& event) override
+	{
+
+	}
+};
+
+class Game : public Application
 {
+public:
+	Game()
+		: Application("Sandbox")
+	{
+		PushLayer(new Test2D());
+	}
 
-}
+	~Game()
+	{
 
-void Game::OnUpdate(const Timestep& ts)
-{
-	//if (Input::GetInputManager()->IsKeyPressed(VK_W))
-
-	m_Entity->Update(ts);
-}
-
-void Game::OnTick()
-{
-	printf("FPS: %d, UPS: %d\n", m_FPS, m_UPS);
-}
-
-void Game::OnRender(Renderer& renderer)
-{
-	m_Entity->Render(renderer);
-
-	renderer.Render();
-}
+	}
+};
 
 int main()
 {

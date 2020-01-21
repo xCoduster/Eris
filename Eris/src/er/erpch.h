@@ -12,3 +12,4 @@
 #include "er/Types.h"
 #include "er/Common.h"
 #include "er/maths/Math.h"
+#include "er/Log.h"

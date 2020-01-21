@@ -8,12 +8,12 @@ namespace er {
 	{
 	}
 
-	vec4::vec4(int32 scalar)
+	vec4::vec4(float scalar)
 		: x(scalar), y(scalar), z(scalar), w(scalar)
 	{
 	}
 
-	vec4::vec4(int32 x, int32 y, int32 z, int32 w)
+	vec4::vec4(float x, float y, float z, float w)
 		: x(x), y(y), z(z), w(w)
 	{
 	}
@@ -58,7 +58,7 @@ namespace er {
 		return *this;
 	}
 
-	vec4& vec4::Add(int32 value)
+	vec4& vec4::Add(float value)
 	{
 		x += value;
 		y += value;
@@ -68,7 +68,7 @@ namespace er {
 		return *this;
 	}
 
-	vec4& vec4::Subtract(int32 value)
+	vec4& vec4::Subtract(float value)
 	{
 		x -= value;
 		y -= value;
@@ -78,7 +78,7 @@ namespace er {
 		return *this;
 	}
 
-	vec4& vec4::Multiply(int32 value)
+	vec4& vec4::Multiply(float value)
 	{
 		x *= value;
 		y *= value;
@@ -88,7 +88,7 @@ namespace er {
 		return *this;
 	}
 
-	vec4& vec4::Divide(int32 value)
+	vec4& vec4::Divide(float value)
 	{
 		x /= value;
 		y /= value;
@@ -118,22 +118,22 @@ namespace er {
 		return left.Divide(right);
 	}
 
-	vec4 operator+(vec4 left, int32 value)
+	vec4 operator+(vec4 left, float value)
 	{
 		return vec4(left.x + value, left.y + value, left.z + value, left.w + value);
 	}
 
-	vec4 operator-(vec4 left, int32 value)
+	vec4 operator-(vec4 left, float value)
 	{
 		return vec4(left.x - value, left.y - value, left.z - value, left.w - value);
 	}
 
-	vec4 operator*(vec4 left, int32 value)
+	vec4 operator*(vec4 left, float value)
 	{
 		return vec4(left.x * value, left.y * value, left.z * value, left.w * value);
 	}
 
-	vec4 operator/(vec4 left, int32 value)
+	vec4 operator/(vec4 left, float value)
 	{
 		return vec4(left.x / value, left.y / value, left.z / value, left.w / value);
 	}
@@ -168,22 +168,22 @@ namespace er {
 		return Divide(other);
 	}
 
-	vec4& vec4::operator+=(int32 value)
+	vec4& vec4::operator+=(float value)
 	{
 		return Add(value);
 	}
 
-	vec4& vec4::operator-=(int32 value)
+	vec4& vec4::operator-=(float value)
 	{
 		return Subtract(value);
 	}
 
-	vec4& vec4::operator*=(int32 value)
+	vec4& vec4::operator*=(float value)
 	{
 		return Multiply(value);
 	}
 
-	vec4& vec4::operator/=(int32 value)
+	vec4& vec4::operator/=(float value)
 	{
 		return Divide(value);
 	}
@@ -208,23 +208,23 @@ namespace er {
 		return (x >= other.x && y >= other.y && z >= other.z && w >= other.w);
 	}
 
-	int32 vec4::Distance(const vec4& other) const
+	float vec4::Distance(const vec4& other) const
 	{
-		int32 a = x - other.x;
-		int32 b = y - other.y;
-		int32 c = z - other.z;
-		int32 d = w - other.w;
+		float a = x - other.x;
+		float b = y - other.y;
+		float c = z - other.z;
+		float d = w - other.w;
 
 		double diagonal = sqrt(a * a + b * b);
 		double spaceDiagonal = sqrt(diagonal * diagonal + c * c);
 
-		return (int32)sqrt(spaceDiagonal * spaceDiagonal + d * d);
+		return (float)sqrt(spaceDiagonal * spaceDiagonal + d * d);
 	}
 
 	std::string vec4::ToString() const
 	{
 		std::stringstream result;
-		result << "vec4: (" << x << ", " << y << ", " << z << ", " << w << ")";
+		result << "(" << x << ", " << y << ", " << z << ", " << w << ")";
 		return result.str();
 	}
 

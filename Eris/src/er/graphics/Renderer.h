@@ -12,7 +12,8 @@ namespace er {
 	{
 	private:
 		Window* m_Window;
-		byte* m_Pixels;
+		byte* m_Foreground;
+		byte* m_Background;
 
 		vec2 m_WindowSize;
 	public:

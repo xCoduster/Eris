@@ -1,53 +1,42 @@
 #pragma once
 
-#include <map>
-#include "er/Types.h"
-#include "er/maths/Math.h"
+#include "er/erpch.h"
 
-#include "Input.h"
+#include "er/events/Event.h"
 
 namespace er {
 
-	struct WindowProperties
+	struct WindowProps
 	{
-		vec2 size;
-		bool fullscreen;
-		bool vsync;
+		std::string Title;
+		vec2 Size;
+
+		WindowProps(std::string title = "Eris Application", 
+					unsigned int width = 1280, 
+					unsigned int height = 720)
+			: Title(title), Size(vec2(1280, 720))
+		{
+		}
 	};
 
 	class Window
 	{
-	private:
-		static std::map<void*, Window*> s_Handles;
-	private:
-		std::string m_Title;
-		WindowProperties m_Properties;
-		bool m_Closed;
-		void* m_Handle;
-
-		InputManager* m_InputManager;
 	public:
-		Window(std::string title);
-		~Window();
+		using EventCallbackFn = std::function<void(Event&)>;
 
-		void Update();
-		void Render(byte* pixels); // Renders a provided array of pixels
+		virtual ~Window() {}
 
-		bool Closed() const;
+		virtual void OnUpdate() = 0;
 
-		inline const vec2& GetSize() const { return m_Properties.size; }
+		virtual const vec2& GetSize() const = 0;
 
-		inline InputManager* GetInputManager() const { return m_InputManager; }
-	private:
-		bool Init();
+		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
+		virtual void SetVSync(bool enable) = 0;
+		virtual bool IsVSync() const = 0;
 
-		bool PlatformInit();
-		void PlatformUpdate();
+		virtual void* GetNativeWindow() const = 0;
 
-		friend void ResizeCallback(Window* window, int32 width, int32 height);
-	public:
-		static void RegisterWindowClass(void* handle, Window* window);
-		static Window* GetWindowClass(void* handle);
+		static Window* Create(const WindowProps& props = WindowProps());
 	};
 
 }

@@ -8,12 +8,12 @@ namespace er {
 	{
 	}
 
-	vec3::vec3(int32 scalar)
+	vec3::vec3(float scalar)
 		: x(scalar), y(scalar), z(scalar)
 	{
 	}
 
-	vec3::vec3(int32 x, int32 y, int32 z)
+	vec3::vec3(float x, float y, float z)
 		: x(x), y(y), z(z)
 	{
 	}
@@ -54,7 +54,7 @@ namespace er {
 		return *this;
 	}
 
-	vec3& vec3::Add(int32 value)
+	vec3& vec3::Add(float value)
 	{
 		x += value;
 		y += value;
@@ -63,7 +63,7 @@ namespace er {
 		return *this;
 	}
 
-	vec3& vec3::Subtract(int32 value)
+	vec3& vec3::Subtract(float value)
 	{
 		x -= value;
 		y -= value;
@@ -72,7 +72,7 @@ namespace er {
 		return *this;
 	}
 
-	vec3& vec3::Multiply(int32 value)
+	vec3& vec3::Multiply(float value)
 	{
 		x *= value;
 		y *= value;
@@ -81,7 +81,7 @@ namespace er {
 		return *this;
 	}
 
-	vec3& vec3::Divide(int32 value)
+	vec3& vec3::Divide(float value)
 	{
 		x /= value;
 		y /= value;
@@ -110,22 +110,22 @@ namespace er {
 		return left.Divide(right);
 	}
 
-	vec3 operator+(vec3 left, int32 value)
+	vec3 operator+(vec3 left, float value)
 	{
 		return vec3(left.x + value, left.y + value, left.z + value);
 	}
 
-	vec3 operator-(vec3 left, int32 value)
+	vec3 operator-(vec3 left, float value)
 	{
 		return vec3(left.x - value, left.y - value, left.z - value);
 	}
 
-	vec3 operator*(vec3 left, int32 value)
+	vec3 operator*(vec3 left, float value)
 	{
 		return vec3(left.x * value, left.y * value, left.z * value);
 	}
 
-	vec3 operator/(vec3 left, int32 value)
+	vec3 operator/(vec3 left, float value)
 	{
 		return vec3(left.x / value, left.y / value, left.z / value);
 	}
@@ -160,22 +160,22 @@ namespace er {
 		return Divide(other);
 	}
 
-	vec3& vec3::operator+=(int32 value)
+	vec3& vec3::operator+=(float value)
 	{
 		return Add(value);
 	}
 
-	vec3& vec3::operator-=(int32 value)
+	vec3& vec3::operator-=(float value)
 	{
 		return Subtract(value);
 	}
 
-	vec3& vec3::operator*=(int32 value)
+	vec3& vec3::operator*=(float value)
 	{
 		return Multiply(value);
 	}
 
-	vec3& vec3::operator/=(int32 value)
+	vec3& vec3::operator/=(float value)
 	{
 		return Divide(value);
 	}
@@ -200,20 +200,20 @@ namespace er {
 		return (x >= other.x && y >= other.y && z >= other.z);
 	}
 
-	int32 vec3::Distance(const vec3& other) const
+	float vec3::Distance(const vec3& other) const
 	{
-		int32 a = x - other.x;
-		int32 b = y - other.y;
-		int32 c = z - other.z;
+		float a = x - other.x;
+		float b = y - other.y;
+		float c = z - other.z;
 		double diagonal = sqrt(a * a + b * b);
 
-		return (int32)sqrt(diagonal * diagonal + c * c);
+		return (float)sqrt(diagonal * diagonal + c * c);
 	}
 
 	std::string vec3::ToString() const
 	{
 		std::stringstream result;
-		result << "vec3: (" << x << ", " << y << ", " << z << ")";
+		result << "(" << x << ", " << y << ", " << z << ")";
 		return result.str();
 	}
 

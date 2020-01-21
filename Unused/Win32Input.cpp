@@ -1,5 +1,5 @@
 #include "er/erpch.h"
-#include "er/app/Input.h"
+/*#include "er/app/Input.h"
 
 #include <Windows.h>
 
@@ -166,4 +166,4 @@ namespace er {
 		inputManager->m_MousePos.x = x;
 		inputManager->m_MousePos.y = y;
 	}
-}
+}*/
