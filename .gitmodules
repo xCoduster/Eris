@@ -1,9 +1,9 @@
 [submodule "Eris/vendor/spdlog"]
 	path = Eris/vendor/spdlog
-	url = https://github.com/gabime/spdlog
+	url = https://github.com/xCoduster/spdlog
 [submodule "Eris/vendor/glfw"]
 	path = Eris/vendor/glfw
-	url = https://github.com/glfw/glfw
+	url = https://github.com/xCoduster/glfw
 [submodule "Eris/vendor/imgui"]
 	path = Eris/vendor/imgui
-	url = https://github.com/ocornut/imgui
+	url = https://github.com/xCoduster/imgui
