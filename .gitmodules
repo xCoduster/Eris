@@ -7,3 +7,6 @@
 [submodule "Eris/vendor/imgui"]
 	path = Eris/vendor/imgui
 	url = https://github.com/xCoduster/imgui
+[submodule "Eris/vendor/glm"]
+	path = Eris/vendor/glm
+	url = https://github.com/xCoduster/glm
