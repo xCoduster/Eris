@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Event.h"
-#include "er/app/Input.h"
+#include "er/core/Input.h"
 
 namespace er {
 

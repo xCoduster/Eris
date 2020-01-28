@@ -1,7 +1,7 @@
 #include "er/erpch.h"
 #include "WindowsInput.h"
 
-#include "er/app/Application.h"
+#include "er/core/Application.h"
 
 #include <GLFW/glfw3.h>
 
@@ -23,13 +23,13 @@ namespace er {
 		return state == GLFW_PRESS;
 	}
 
-	vec2 WindowsInput::GetMousePosImpl()
+	glm::vec2 WindowsInput::GetMousePosImpl()
 	{
 		GLFWwindow* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		double xpos, ypos;
 		glfwGetCursorPos(window, &xpos, &ypos);
 
-		return vec2((float)xpos, (float)ypos);
+		return { xpos, ypos };
 	}
 
 }

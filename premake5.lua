@@ -11,9 +11,11 @@ workspace "Eris"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "Eris/vendor/GLFW/include"
 IncludeDir["glad"] = "Eris/vendor/glad/include"
+IncludeDir["GLFW"] = "Eris/vendor/GLFW/include"
+IncludeDir["glm"] = "Eris/vendor/glm"
 IncludeDir["ImGui"] = "Eris/vendor/imgui"
+IncludeDir["stb_image"] = "Eris/vendor/stb_image"
 
 group "Dependencies"
 	include "Eris/vendor/GLFW"
@@ -38,7 +40,11 @@ project "Eris"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	defines
@@ -50,9 +56,11 @@ project "Eris"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links
@@ -102,7 +110,8 @@ project "Sandbox"
 	{
 		"Eris/src",
 		"Eris/vendor",
-		"Eris/vendor/spdlog/include"
+		"Eris/vendor/spdlog/include",
+		"%{IncludeDir.glm}"
 	}
 
 	links

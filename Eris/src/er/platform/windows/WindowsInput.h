@@ -1,6 +1,6 @@
 #pragma once
 
-#include "er/app/Input.h"
+#include "er/core/Input.h"
 
 namespace er {
 
@@ -10,7 +10,7 @@ namespace er {
 		virtual bool IsKeyPressedImpl(KeyCode keyCode) override;
 
 		virtual bool IsMouseButtonPressedImpl(MouseCode button) override;
-		virtual vec2 GetMousePosImpl() override;
+		virtual glm::vec2 GetMousePosImpl() override;
 	};
 
 }

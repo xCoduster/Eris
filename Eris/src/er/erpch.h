@@ -1,15 +1,17 @@
 #pragma once
 
+#include <functional>
 #include <iostream>
-#include <sstream>
+#include <memory>
 
+#include <array>
+#include <sstream>
 #include <string>
+#include <unordered_map>
 #include <vector>
-#include <map>
 
 #include <cstdlib>
 
-#include "er/Types.h"
-#include "er/Common.h"
-#include "er/maths/Math.h"
-#include "er/Log.h"
+#include "er/core/Common.h"
+#include "er/core/Log.h"
+#include "er/core/Types.h"

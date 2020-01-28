@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Event.h"
-#include "er/app/Input.h"
+#include "er/core/Input.h"
 
 namespace er {
 
@@ -9,9 +9,9 @@ namespace er {
 	{
 	public:
 		MouseMovedEvent(float x, float y)
-			: m_MousePos(vec2(x, y)) {}
+			: m_MousePos({ x, y }) {}
 
-		inline const vec2& GetPos() const { return m_MousePos; }
+		inline const glm::vec2& GetPos() const { return m_MousePos; }
 
 		std::string ToString() const override
 		{
@@ -23,7 +23,7 @@ namespace er {
 		EVENT_CLASS_TYPE(MouseMoved)
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	private:
-		vec2 m_MousePos;
+		glm::vec2 m_MousePos;
 	};
 
 	class MouseScrolledEvent : public Event

@@ -5,7 +5,7 @@
 #include <examples/imgui_impl_glfw.h>
 #include <examples/imgui_impl_opengl3.h>
 
-#include "er/app/Application.h"
+#include "er/core/Application.h"
 #include "er/events/KeyCodes.h"
 
 // TEMPORARY!!!
@@ -87,11 +87,5 @@ namespace er {
 			ImGui::RenderPlatformWindowsDefault();
 			glfwMakeContextCurrent(backup_current_context);
 		}
-	}
-
-	void ImGuiLayer::OnImGuiRender()
-	{
-		static bool show = true;
-		ImGui::ShowDemoWindow(&show);
 	}
 }

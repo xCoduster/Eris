@@ -1,7 +1,7 @@
 #pragma once
 
-#include "er/app/Window.h"
-#include "er/renderer/GraphicsContext.h"
+#include "er/core/Window.h"
+#include "er/renderer/api/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -16,7 +16,7 @@ namespace er {
 
 		void OnUpdate() override;
 
-		inline const vec2& GetSize() const { return m_Data.Size; }
+		inline const glm::vec2& GetSize() const { return m_Data.Size; }
 
 		inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
 		void SetVSync(bool enable) override;
@@ -33,7 +33,7 @@ namespace er {
 		struct WindowData
 		{
 			std::string Title;
-			vec2 Size;
+			glm::vec2 Size;
 			bool VSync;
 
 			EventCallbackFn EventCallback;

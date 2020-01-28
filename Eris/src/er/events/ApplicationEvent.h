@@ -2,15 +2,17 @@
 
 #include "Event.h"
 
+#include <glm/glm.hpp>
+
 namespace er {
 
 	class WindowResizeEvent : public Event
 	{
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
-			: m_Size(vec2((float)width, (float)height)) {}
+			: m_Size({ width, height }) {}
 
-		inline const vec2& GetSize() const { return m_Size; }
+		inline const glm::vec2& GetSize() const { return m_Size; }
 
 		std::string ToString() const override
 		{
@@ -22,7 +24,7 @@ namespace er {
 		EVENT_CLASS_TYPE(WindowResize)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	private:
-		vec2 m_Size;
+		glm::vec2 m_Size;
 	};
 
 	class WindowCloseEvent : public Event

@@ -4,11 +4,8 @@ namespace er {
 
 	struct Timestep
 	{
-	private:
-		float m_Timestep;
-		float m_LastTime;
 	public:
-		inline Timestep(float initialTime)
+		inline Timestep(float initialTime = 0.0f)
 			: m_Timestep(0.0f), m_LastTime(initialTime)
 		{
 		}
@@ -19,7 +16,12 @@ namespace er {
 			m_LastTime = currentTime;
 		}
 
-		inline float GetMillis() const { return m_Timestep; }
-		inline float GetSeconds() const { return m_Timestep * 0.001f; }
+		operator float() const { return m_Timestep; }
+
+		inline float GetMillis() const { return m_Timestep * 1000.0f; }
+		inline float GetSeconds() const { return m_Timestep; }
+	private:
+		float m_Timestep;
+		float m_LastTime;
 	};
 }
